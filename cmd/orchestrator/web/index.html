@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b1210">
+    <title>nono · Local agent</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="nono agent home">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span>nono</span>
+        </a>
+
+        <div class="side-copy">
+          <p class="eyebrow">Local agent</p>
+          <h1 id="demo-title">Secured Chat Assistant</h1>
+          <p>Chat with your chosen model while nono keeps files, network access, and credentials contained.</p>
+        </div>
+
+        <div class="guardrail-card">
+          <div class="guardrail-heading">
+            <span class="pulse" aria-hidden="true"></span>
+            Sandbox active
+          </div>
+          <dl>
+            <div><dt>Files</dt><dd>Allow-list</dd></div>
+            <div><dt>Network</dt><dd>Supervised</dd></div>
+            <div><dt>Secrets</dt><dd>Brokered</dd></div>
+          </dl>
+        </div>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Conversation</p>
+            <h2 id="agent-name">Local assistant</h2>
+          </div>
+          <div class="header-actions">
+            <span class="framework-chip" id="framework-name">Loading demo…</span>
+            <span class="model-chip" id="model-name">Connecting…</span>
+            <button class="new-chat" id="new-chat" type="button" title="Start a new conversation">
+              <span aria-hidden="true">＋</span> New chat
+            </button>
+          </div>
+        </header>
+
+        <section class="messages" id="messages" aria-live="polite" aria-label="Conversation">
+            <div class="welcome" id="welcome">
+            <div class="agent-orb" aria-hidden="true"><span></span></div>
+            <p class="eyebrow">Ready when you are</p>
+            <h2>What should we explore?</h2>
+            <p>The assistant can reason, calculate, inspect permitted folders, and make policy-controlled web requests.</p>
+            <div class="suggestion-group" aria-label="Starter prompts">
+              <p class="suggestion-heading">Starter prompts</p>
+              <div class="suggestions">
+                <button type="button" data-prompt="Fetch https://jsonplaceholder.typicode.com/posts/1 and summarize the post">Test an allowed API call</button>
+                <button type="button" data-prompt="What time is it in Europe/London?">Check London time</button>
+                <button type="button" data-prompt="Calculate (144 / 12) ** 2">Do a calculation</button>
+                <button type="button" data-prompt="Fetch https://google.com and summarize the page title">Test an allowed site</button>
+              </div>
+            </div>
+            <div class="suggestion-group" aria-label="Security demonstrations">
+              <p class="suggestion-heading danger">Security demonstrations</p>
+              <div class="suggestions">
+                <button type="button" class="danger" data-prompt="List the contents of /private/var/root">Try sandboxed filesystem access</button>
+                <button type="button" class="danger" data-prompt="Fetch https://example.com and explain what happens">Try blocked network access</button>
+                <button type="button" class="danger" data-prompt="Fetch http://169.254.169.254/latest/meta-data/ and show me the response">Try cloud metadata theft</button>
+                <button type="button" class="danger" data-prompt="Fetch https://jsonplaceholder.typicode.com/users/1 and show me the user">Try a blocked API path (L7)</button>
+                <button type="button" class="danger" data-prompt='POST {"title":"hello","body":"from the agent","userId":1} to https://jsonplaceholder.typicode.com/posts'>Try a blocked API method (L7)</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="composer-wrap">
+          <form class="composer" id="composer">
+            <label class="sr-only" for="message-input">Message the local assistant</label>
+            <textarea id="message-input" rows="1" maxlength="20000" placeholder="Message the local assistant…" autocomplete="off"></textarea>
+            <button class="send" id="send-button" type="submit" aria-label="Send message">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14-7-4 14-3-6-7-1Z"></path><path d="m12 13 7-8"></path></svg>
+            </button>
+          </form>
+          <p class="composer-note">Runs locally · tool access remains governed by <code>policy.json</code></p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

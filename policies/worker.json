@@ -1,0 +1,63 @@
+{
+  "extends": [
+    "go-dev"
+  ],
+  "meta": {
+    "name": "a2a-worker",
+    "version": "1.0.0",
+    "description": "Sandboxed A2A worker agent with brokered model traffic",
+    "author": null
+  },
+  "filesystem": {
+    "allow": [],
+    "read": [],
+    "write": [],
+    "allow_file": [],
+    "read_file": [],
+    "write_file": [],
+    "unix_socket": [],
+    "unix_socket_bind": [],
+    "unix_socket_dir": [],
+    "unix_socket_dir_bind": [],
+    "unix_socket_subtree": [],
+    "unix_socket_subtree_bind": [],
+    "deny": [],
+    "bypass_protection": [],
+    "suppress_save_prompt": []
+  },
+  "network": {
+    "block": false,
+    "allow_http2": false,
+    "allow_domain": [
+      "google.com",
+      "*.google.com",
+      {
+        "domain": "jsonplaceholder.typicode.com",
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/posts/**"
+          }
+        ]
+      }
+    ],
+    "deny_domain": [
+      "example.com"
+    ],
+    "open_port": [],
+    "listen_port": [
+      9001
+    ],
+    "connect_port": [],
+    "custom_credentials": {},
+    "tls_intercept": null,
+    "upstream_proxy": null,
+    "upstream_bypass": []
+  },
+  "workdir": {
+    "access": "none",
+  },
+  "unsafe_macos_seatbelt_rules": [
+    "(allow user-preference-read)"
+  ]
+}
