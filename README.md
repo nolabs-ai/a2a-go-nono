@@ -5,7 +5,7 @@ This repository shows two agents cooperating over the
 [a2a-go](https://github.com/a2aproject/a2a-go) SDK and
 [adk-go](https://github.com/google/adk-go), with the tool-using agent running
 inside a [nono](https://github.com/nolabs-ai/nono) sandbox. It is the A2A
-counterpart to the Python ADK and Mastra demos in `adkdemo`.
+counterpart to the Python ADK and Mastra demos in [adkdemo](https://github.com/nolabs-ai/nono-adk-example)
 
 ```
 browser ──HTTP──▶ orchestrator (:8000) ──A2A JSON-RPC──▶ worker (:9001)
